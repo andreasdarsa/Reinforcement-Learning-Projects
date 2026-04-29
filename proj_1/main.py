@@ -1,6 +1,6 @@
 import numpy as np
 import pygame
-from proj_1.flappy_bird import FlappyBirdEnv
+from flappy_bird import FlappyBirdEnv
 
 MODE = "human"  # human | random
 

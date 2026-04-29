@@ -20,7 +20,7 @@ class FlappyBirdEnv:
             pygame.display.set_caption("Flappy Bird RL")
             self.clock = pygame.time.Clock()
 
-            self.bird_img = pygame.image.load("../assets/bird.png").convert_alpha()
+            self.bird_img = pygame.image.load("proj_1/assets/bird.png").convert_alpha()
             self.bird_img = pygame.transform.scale(self.bird_img, (40, 40))
 
         self.distance_weight = distance_weight

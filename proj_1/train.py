@@ -1,5 +1,5 @@
-from proj_1.flappy_bird import FlappyBirdEnv
-from proj_1.agent import Agent
+from flappy_bird import FlappyBirdEnv
+from agent import Agent
 import numpy as np
 
 
