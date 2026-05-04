@@ -65,29 +65,7 @@ pip install torch numpy pygame matplotlib
 
 ---
 
-### 2. Training (εκπαίδευση agent)
-
-Από τον φάκελο `proj_1`:
-
-```bash
-python train.py
-```
-
-👉 Αυτό θα:
-
-* τρέξει ~2000 episodes
-* αποθηκεύσει:
-
-  * `best_flappy_model.pth`
-  * `final_flappy_model.pth`
-* δημιουργήσει plots:
-
-  * `training_scores.png`
-  * `training_rewards.png`
-
----
-
-### 3. Manual Play (δοκιμή περιβάλλοντος)
+### 2. Manual Play (δοκιμή περιβάλλοντος)
 
 ```bash
 python main.py
@@ -99,9 +77,60 @@ Controls:
 
 ---
 
+### 3. Hyperparameter Tuning με Grid Search
+
+Για να δοκιμαστούν διαφορετικοί συνδυασμοί υπερπαραμέτρων:
+
+```bash
+python grid_search.py
+```
+
+Το grid search δοκιμάζει ενδεικτικά:
+```python
+param_grid = {
+    "lr": [1e-3, 5e-4],
+    "epsilon_decay": [0.995, 0.998],
+    "gamma": [0.99, 0.95],
+    "distance_weight": [0.01, 0.02]
+}
+```
+
+Στο τέλος εμφανίζονται τα καλύτερα configurations, ταξινομημένα βάσει average score.
+
+Παράδειγμα αποτελέσματος:
+```
+({'lr': 0.0005, 'epsilon_decay': 0.998, 'gamma': 0.95, 'distance_weight': 0.01}, 1.3)
+```
+---
+### 4. Training με Best Configuration
+Αφού ολοκληρωθεί το grid search, μπορείς να πάρεις το καλύτερο configuration και να το περάσεις στο `train.py`.
+
+Παράδειγμα:
+```python
+BEST_CONFIG = {
+    "lr": 5e-4,
+    "epsilon_decay": 0.998,
+    "gamma": 0.95,
+    "distance_weight": 0.01,
+    "episodes": 2000
+}
+```
+
+Έπειτα τρέχεις:
+```bash
+python train.py
+```
+Το training αποθηκεύει:
+- `best_flappy_model.pth`
+- `final_flappy_model.pth`
+- `training_scores.png`
+- `training_rewards.png`
+
+---
+
 ## ⚙️ Training Configuration
 
-Best configuration (από grid search):
+Το τελικό training έγινε με το καλύτερο configuration που προέκυψε από grid search:
 
 ```python
 lr = 5e-4
@@ -111,18 +140,9 @@ distance_weight = 0.01
 episodes = 2000
 ```
 
----
+Η γενική ροή είναι:
 
-## 🔍 Hyperparameter Tuning
-
-```python
-param_grid = {
-    "lr": [1e-3, 5e-4],
-    "epsilon_decay": [0.995, 0.998],
-    "gamma": [0.99, 0.95],
-    "distance_weight": [0.01, 0.02]
-}
-```
+```manual test → grid search → select best config → long training run → evaluation plots```
 
 ---
 
