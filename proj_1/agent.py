@@ -52,5 +52,7 @@ class Agent:
         self.optimizer.zero_grad()
         loss.backward()
         torch.nn.utils.clip_grad_norm_(self.model.parameters(), 1.0)
-        self.update_epsilon()
+
         self.optimizer.step()
+
+        return loss.item()
