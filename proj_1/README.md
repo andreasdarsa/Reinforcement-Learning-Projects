@@ -164,7 +164,7 @@ episodes = 2000
 
 ---
 
-## ⚠️ Limitations
+## ⚠️ Περιορισμοί
 
 * Χαμηλό τελικό score
 * Ευαισθησία σε reward shaping
@@ -172,16 +172,16 @@ episodes = 2000
 
 ---
 
-## 🚀 Future Work
+## 🚀 Μελλοντική εργασία
 
 * Double DQN
 * Dueling DQN
 * CNN (image-based input)
-* Improved reward design
+* Ενισχυμένη σχεδίαση ανταμοιβών
 
 ---
 
-## 📚 Technologies
+## 📚 Tech Stack
 
 * Python
 * PyTorch
@@ -190,7 +190,8 @@ episodes = 2000
 
 ---
 
-## 👤 Author
+## 👤 Δημιουργήθηκε από
 
-Andreas Darsaklis
-Reinforcement Learning Project – AUTH
+Ανδρέας Δαρσακλής
+1η εργασία στην Υπολογιστική Νοημοσύνη - Βαθιά Ενισχυτική Μάθηση
+Τμήμα Πληροφορικής - ΑΠΘ
